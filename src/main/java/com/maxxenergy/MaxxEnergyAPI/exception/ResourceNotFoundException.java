@@ -1,6 +1,8 @@
 package com.maxxenergy.MaxxEnergyAPI.exception;
 
-public class ResourceNotFoundException {
+public class ResourceNotFoundException extends RuntimeException {
 
-    //  if user is not found
+    public ResourceNotFoundException(String message) {
+        System.out.println("ResourceNotFoundException: " + message);
+    }
 }
