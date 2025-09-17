@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAXX DATA</title>
+  <link rel="stylesheet" href="CSS/DATACSS/DATACSS.css">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar">
+    <a href="#" class="logo">MAXX ENERGY</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="data-dashboard.html">MAXX Data</a></li>
+    </ul>
+  </nav>
+
+
+
+<section class="top-section">
+  <h2>MAXX ENERGY : DATA DASH</h2>
+  <img src="IMAGES/MAXXHERO AT DESK.png" 
+     alt="Data Dashboard Icon" 
+     class="hero-image glow zoom">
+
+
+
+ 
+  <!-- ================= HEADER SECTION ================= -->
+<section class="header-section">
+  <div class="header-container">
+    <header>
+      <p>Overview of collected data</p>
+      <h1>*Please note that this is confidential information EXCLUSIVELY accessible through your login credentials.*</h1>
+      <h1>VIEW OUR MAXX ENERGY DATA PULLED BY AMERICA'S TOP DATA ANALYSTS</h1>
+    </header>
+  </div>
+</section>
+
+
+  <!-- ================= LOADING OVERLAY ================= -->
+  <div id="loading-screen">
+    <div class="spinner"></div>
+    <p>Loading Dashboard...</p>
+  </div>
+
+  <!-- ================= DASHBOARD ================= -->
+  <div class="dashboard-container">
+    <iframe id="powerbi-frame"
+      title="plant_data_visualization"
+      src="https://app.powerbi.com/view?r=eyJrIjoiOGViMzIzY2UtNDgxYy00ZGQ1LTgzMmUtZWI1ZjhhMjI4NmI0IiwidCI6ImZlMmMyNDI5LTk3ZDAtNDc4Zi1hMmQxLTY3ZmZlN2YyYjc4ZiIsImMiOjF9"
+      allowFullScreen>
+    </iframe>
+  </div>
+
+  <script>
+    // Hide loading screen once iframe loads
+    const iframe = document.getElementById("powerbi-frame");
+    const loadingScreen = document.getElementById("loading-screen");
+
+    iframe.onload = () => {
+      loadingScreen.style.display = "none";
+    };
+
+  </script>
+
+
+
+  <!-- ================= CONNECT WITH MAXX ENERGY ================= -->
+  <div class="container">
+    <!-- Brand Logo -->
+    <img class="logo" src="IMAGES/MAXX-Energy-Logo-1A.png" alt="MAXX Energy Logo" />
+
+    <h1>Connect With MAXX Energy</h1>
+    <p>Feel the pulse. Follow us on your favorite platforms:</p>
+    
+    <!-- Social Media Icons -->
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+  <!-- ================= FOOTER ================= -->
+  <footer>MAXX POTENTIAL INTERNSHIP 2025</footer>
+
+
+
+  <script src="SCRIPTS/DATASCRIPT/DATASCRIPT.js"></script>
+  <script src="maxx-api.js"></script>
+</body>
+</html>

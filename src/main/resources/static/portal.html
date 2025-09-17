@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MAXX ENERGY | MAXX PORTAL</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" href="CSS/PORTALCSS/portalcss.css">
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+   <nav class="navbar">
+    <a href="#" class="logo">MAXX ENERGY</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      
+    </ul>
+  </nav>
+
+  <!-- ================= HERO SECTION ================= -->
+  <div class="hero-video-section" id="hero">
+    <!-- Video Background -->
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="https://yearuptemp-my.sharepoint.com/:v:/g/personal/jjones_appdev_yearup_org/EYJQl0zDD-NKtEOAkQ4KZV8Bwiob-dPZLaHnJi5sRLp8Mg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=L8YGkp" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- ===== Glass Container ===== -->
+    <div class="glass-container">
+      <!-- ===== Image/Logo Section ===== -->
+      <div class="logo">
+        <img src="IMAGES/MAXXHERO AT DESK.png" alt="Logo">
+      </div>
+
+      <!-- ===== Login Form ===== -->
+      <h2>Login</h2>
+      <form id="loginForm">
+  <input type="text" id="username" placeholder="Username" required>
+  <input type="password" id="password" placeholder="Password" required>
+        
+        <!-- Buttons -->
+        <div class="buttons">
+          <button type="button" id="loginBtn">ENTER</button>
+          <button type="button" onclick="location.href='reset-password.html'">GET ACCESS</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- External JS -->
+  <script src="SCRIPTS/PORTALSCRIPT/portalscript.js"></script>
+  <script src="maxx-api.js"></script>
+</body>
+</html>

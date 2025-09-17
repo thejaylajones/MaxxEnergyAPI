@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MAXX ENERGY | SIGN UP</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" href="CSS/SIGNUPCSS/signupCSS.css">
+</head>
+<body>
+ <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+    <a href="#" class="logo">MAXX ENERGY</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="portal.html">MAXX Portal</a></li>
+    </ul>
+  </nav>
+
+ 
+  <!-- ================= SIGN UP CONTAINER ================= -->
+  <div class="signup-container">
+    <h2>Create Your Account</h2>
+    <p>Register now to unlock MAXX ENERGY member-only features.</p>
+
+    <form id="signup-form" novalidate>
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name"><i class="fas fa-user"></i> Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        <small class="error-message"></small>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <small class="error-message"></small>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password"><i class="fas fa-lock"></i> Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required minlength="6">
+        <small class="error-message"></small>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="signup-btn">
+        <i class="fas fa-user-plus"></i> Sign Up
+      </button>
+    </form>
+
+    <p class="redirect-text">
+      Already have an account? <a href="portal.html">Log In</a>
+    </p>
+  </div>
+
+
+  <!-- ================= CONNECT WITH MAXX ENERGY ================= -->
+  <div class="container">
+    <!-- Brand Logo -->
+    <img class="logo" src="IMAGES/MAXX-Energy-Logo-1A.png" alt="MAXX Energy Logo" />
+
+    <h1>Connect With MAXX Energy</h1>
+    <p>Feel the pulse. Follow us on your favorite platforms:</p>
+    
+    <!-- Social Media Icons -->
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+  <!-- ================= FOOTER ================= -->
+  <footer>MAXX POTENTIAL INTERNSHIP 2025</footer>
+
+
+  <!-- External JS -->
+  <script src="SCRIPTS/SIGNUPSCRIPT/signupSCRIPT.js"></script>
+  <script src="maxx-api.js"></script>
+</body>
+
+</html>

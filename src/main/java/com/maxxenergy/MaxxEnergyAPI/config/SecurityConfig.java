@@ -38,7 +38,11 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .requestMatchers("/auth/**", "/health").permitAll()
+                        .requestMatchers("/auth/**", "/health", "/", "/index.html", "/static/**", "/assets/**", 
+                                        "/about.html", "/contact.html", "/faq.html", "/portal.html", 
+                                        "/signup.html", "/reset-password.html", "/user-profile.html", 
+                                        "/data-dashboard.html", "/CSS/**", "/SCRIPTS/**", "/IMAGES/**",
+                                        "/*.html", "/*.css", "/*.js", "/*.png", "/*.jpg", "/*.jpeg", "/*.gif", "/*.mp4").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

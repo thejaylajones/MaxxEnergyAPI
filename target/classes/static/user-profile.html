@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAXX Energy | User Profile</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="CSS/USERPROFILECSS/userprofilecss.css">
+</head>
+<body>
+    <!-- ================= BACKGROUND LAYERS ================= -->
+    <div class="background"></div>
+    <div class="scanlines"></div>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+        <a href="#" class="logo">MAXX ENERGY</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="data-dashboard.html">MAXX Data</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Welcome to Your MAXX Energy Profile</h1>
+            <p>Manage your account and access your energy data</p>
+        </div>
+    </div>
+
+    <!-- ================= USER PROFILE SECTION ================= -->
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-image-container">
+                <img id="profileImage" src="IMAGES/MAXX-Energy-Logo-1A.png" alt="Profile Image" class="profile-image">
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                    <i class="fas fa-camera"></i>
+                </button>
+            </div>
+            <div class="profile-info">
+                <h2 id="userName">MAXX Energy User</h2>
+                <p id="userEmail">user@maxxenergy.com</p>
+                <p id="userRole">Energy Professional</p>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <div class="profile-section">
+                <h3><i class="fas fa-user"></i> Personal Information</h3>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" value="MAXX Energy User">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" value="user@maxxenergy.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" value="(555) 123-4567">
+                </div>
+                <button class="save-btn">Save Changes</button>
+            </div>
+
+            <div class="profile-section">
+                <h3><i class="fas fa-shield-alt"></i> Security Settings</h3>
+                <div class="form-group">
+                    <label for="currentPassword">Current Password</label>
+                    <input type="password" id="currentPassword" placeholder="Enter current password">
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" placeholder="Enter new password">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm New Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm new password">
+                </div>
+                <button class="save-btn">Update Password</button>
+            </div>
+
+            <div class="profile-section">
+                <h3><i class="fas fa-chart-line"></i> Energy Dashboard</h3>
+                <div class="dashboard-links">
+                    <a href="data-dashboard.html" class="dashboard-link">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>View Energy Data</span>
+                    </a>
+                    <a href="#" class="dashboard-link">
+                        <i class="fas fa-file-invoice"></i>
+                        <span>Billing History</span>
+                    </a>
+                    <a href="#" class="dashboard-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Energy Settings</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= CONNECT WITH MAXX ENERGY ================= -->
+    <div class="container">
+        <!-- Brand Logo -->
+        <img class="logo" src="IMAGES/MAXX-Energy-Logo-1A.png" alt="MAXX Energy Logo" />
+        <h1>Connect With MAXX Energy</h1>
+        <p>Feel the pulse. Follow us on your favorite platforms:</p>
+        
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>MAXX POTENTIAL INTERNSHIP 2025</footer>
+
+    <!-- Link to External JS -->
+    <script src="SCRIPTS/USERPROFILESCRIPT/userprofilescript.js"></script>
+    <script src="SCRIPTS/maxx-api.js"></script>
+    
+    <script>
+        // Load user data from localStorage or API
+        function loadUserData() {
+            const token = localStorage.getItem('token');
+            if (token) {
+                // You can decode the JWT token to get user info
+                // For now, we'll use placeholder data
+                document.getElementById('userName').textContent = 'MAXX Energy User';
+                document.getElementById('userEmail').textContent = 'user@maxxenergy.com';
+            }
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = 'index.html';
+        }
+
+        // Load user data when page loads
+        document.addEventListener('DOMContentLoaded', loadUserData);
+    </script>
+</body>
+</html>

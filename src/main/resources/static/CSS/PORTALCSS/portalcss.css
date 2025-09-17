@@ -1,0 +1,177 @@
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Body ===== */
+body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ===== Hero Video Section ===== */
+.hero-video-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  object-fit: cover;
+}
+
+/* ===== Glass Container ===== */
+.glass-container {
+  position: relative;
+  width: 350px;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15); /* Adjust opacity here */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  transition: transform 1s ease-in-out;
+  perspective: 1000px;
+  z-index: 2;
+}
+
+/* ===== Glass Container Pulse / Floating Animation ===== */
+@keyframes pulse {
+  0% {
+    transform: translateY(0px) scale(1) rotateY(0deg);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02) rotateY(0deg);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+  100% {
+    transform: translateY(0px) scale(1) rotateY(0deg);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  }
+}
+
+.glass-container {
+  /* Existing styles here */
+  animation: pulse 3s ease-in-out infinite;
+  /* Keep the rotateY animation from JS on click, it will override temporarily */
+}
+
+
+
+/* ===== Logo ===== */
+.glass-container .logo img {
+  width: 100px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+}
+
+/* ===== Headline ===== */
+.glass-container h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+/* ===== Input Fields ===== */
+.glass-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+/* ===== Buttons ===== */
+.glass-container .buttons {
+  margin-top: 15px;
+}
+
+.glass-container button {
+  width: 45%;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.glass-container button:hover {
+  transform: scale(1.05);
+}
+
+/* Login Button Style */
+#loginBtn {
+  background: #fbb019;
+  color: white;
+}
+#loginBtn:hover {
+  background: #f8c764;
+}
+
+/* Signup Button Style */
+button[onclick] {
+  background: #496da7;
+  color: white;
+}
+button[onclick]:hover {
+  background: #86a8dd;
+}
+
+/* Navbar */
+nav.navbar {
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 10px #fbff00;
+  text-decoration: text-decoration-bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  background-color: #ecc101;
+  color: #000000;
+  border-radius: 4px;
+  box-shadow: 0 0 12px #ffffff;
+}

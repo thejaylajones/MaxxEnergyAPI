@@ -1,0 +1,312 @@
+/* ========== NAVBAR ========== */
+nav.navbar {
+  background-color: #000000cc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 10px #fbb019;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  background-color: #fbb019;
+  color: #000;
+  border-radius: 4px;
+  box-shadow: 0 0 12px #ffffff;
+}
+
+/* ========== GENERAL RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ========== BODY ========== */
+body {
+  min-height: 100vh;
+  background: url("https://png.pngtree.com/thumb_back/fh260/background/20231010/pngtree-trendy-background-abstract-blue-and-yellow-texture-composed-of-stains-smoke-image_13603090.png") no-repeat center center/cover;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+
+
+.dashboard-container, .top-section, header {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========== TOP SECTION ========== */
+/* === Base Hero Image Styling === */
+.hero-section {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.hero-image {
+  max-width: 50%;
+  width: 50%;     /* scales responsively */
+  height: auto;
+  display: block;
+  margin: 16px auto;
+  border-radius: 12px; /* optional rounded edges */
+  transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* === Option 1: Drop Shadow === */
+.hero-image.shadow {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* === Option 2: Neon Glow === */
+.hero-image.glow {
+  box-shadow: 0 0 25px #fbb019, 0 0 50px #fbb019, 0 0 75px #5900ff;
+}
+
+/* === Option 3: Hover Zoom === */
+.hero-image.zoom:hover {
+  transform: scale(1.05);
+}
+
+/* === Option 4: Floating Animation === */
+.hero-image.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+/* === Option 5: Pulse Glow === */
+.hero-image.pulse {
+  animation: pulseGlow 3s infinite;
+}
+
+@keyframes pulseGlow {
+  0%   { box-shadow: 0 0 10px #fbb019; }
+  50%  { box-shadow: 0 0 30px #fbb019, 0 0 60px #5900ff; }
+  100% { box-shadow: 0 0 10px #fbb019; }
+}
+
+
+
+
+/* ====== HEADER SECTION ====== */
+.header-section {
+  position: relative;
+  width: 100%;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: 2px solid #414eca;
+}
+
+
+/* ====== HEADER CONTAINER ====== */
+.header-container {
+  max-width: 1000px;
+  padding: 20px;
+  color: #fff;
+}
+
+.header-container p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #000;
+}
+
+.header-container h1 {
+  font-size: 2rem;
+  margin: 15px 0;
+  line-height: 1.4;
+  text-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
+/* ====== PULSE ANIMATION ====== */
+@keyframes pulse {
+  0%   { transform: scale(1); filter: brightness(100%); }
+  50%  { transform: scale(1.05); filter: brightness(115%); }
+  100% { transform: scale(1); filter: brightness(100%); }
+}
+
+
+
+
+
+
+
+
+/* ========== LOADING SCREEN ========== */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.spinner {
+  border: 8px solid #496da7;
+  border-top: 8px solid #fbb019;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+#loading-screen p {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+/* ========== DASHBOARD ========== */
+.dashboard-container {
+  width: 95%;
+  max-width: 1400px;
+  margin: 40px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.dashboard-container iframe {
+  width: 100%;
+  height: 90vh; /* makes dashboard much bigger */
+  border: none;
+  display: block;
+}
+
+
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Connect Page Styles */
+.container {
+  text-align: center;
+  padding: 80px 20px;
+  animation: fadeIn 2s ease;
+}
+
+.logo {
+  width: 180px;
+  margin-bottom: 20px;
+  animation: glitchPulse 3s infinite alternate;
+  filter: drop-shadow(0 0 10px #496da7);
+}
+
+h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 0 10px #fbb019;
+  animation: pulseText 2s infinite alternate;
+}
+
+p {
+  margin-bottom: 40px;
+  font-size: 18px;
+  color: #496da7;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  font-size: 36px;
+  color: #496da7;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 50%;
+  background-color: #000000;
+  transition: 0.4s ease-in-out;
+  box-shadow: 0 0 10px #496da7;
+  animation: popIn 1.5s ease forwards;
+}
+
+.social-icons a:hover {
+  color: #fffb00;
+  transform: scale(1.2);
+  box-shadow:
+    0 0 15px #496da7,
+    0 0 30px #fbb019,
+    0 0 45px #fffb00;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseText {
+  from { text-shadow: 0 0 10px #496da7; }
+  to   { text-shadow: 0 0 25px #ffd000; }
+}
+
+@keyframes popIn {
+  0%   { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes glitchPulse {
+  0% { transform: scale(1) skewX(0deg); }
+  50% { transform: scale(1.02) skewX(1deg); }
+  100% { transform: scale(1) skewX(0deg); }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  h1 { font-size: 32px; }
+  .social-icons { gap: 20px; }
+  .social-icons a { font-size: 28px; padding: 12px; }
+  .logo { width: 140px; }
+}

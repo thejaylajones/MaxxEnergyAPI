@@ -1,0 +1,35 @@
+# MAXX Energy Frontend Assets
+
+## Missing Images & Videos Needed:
+
+### Logo Files:
+- MAXX-Energy-Logo-1A.png (main logo - used in multiple pages)
+- MAXX-Energy-Logo-1B.png (homepage hero logo)
+- MAXX-Energy-Logo-3B.png (FAQ page logo)
+- MAXX-Energy-White.png (FAQ page white logo)
+
+### Hero Images:
+- MAXXHERO AT DESK.png (portal & data dashboard hero)
+- MAXX Energy Soars with Lightning Power.png (FAQ hero)
+- MAXX Energy Soars Through the Night (1).png (about page video overlay)
+
+### Content Images:
+- mission-image.jpeg (about page mission section)
+- team-image.jpeg (about page team section)
+- userpic.png (user profile default avatar)
+
+### Videos:
+- hero-video.mp4 (homepage & portal background video)
+- Understanding Basics of the Power Market.mp4 (about page educational video)
+
+## Current Status:
+Your frontend HTML files are referencing these assets, but they're missing from the IMAGES folder. 
+This causes broken image icons and missing video players on your website.
+
+## Next Steps:
+1. Send me all the image files (PNG, JPG, JPEG)
+2. Send me the video files (MP4 format)
+3. I'll place them in this IMAGES folder
+4. Your frontend will then display completely with all visual elements
+
+The abstract blue/yellow ink image you shared could work great as a background or design element!

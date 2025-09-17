@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>MaxxEnergy API Connector</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 24px; background:#0b1220; color:#e8eefc; }
+    h1 { margin: 0 0 16px; }
+    .card { background:#111a2e; border:1px solid #24314f; border-radius:12px; padding:16px; margin:12px 0; }
+    label { display:block; margin:8px 0 4px; font-size:14px; color:#b9c4e3; }
+    input { width:100%; padding:10px; border-radius:8px; border:1px solid #2a3a60; background:#0e1730; color:#e8eefc; }
+    button { margin-top:10px; padding:10px 14px; background:#2a68ff; color:#fff; border:0; border-radius:8px; cursor:pointer; }
+    button.secondary { background:#304066; }
+    .row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    pre { white-space:pre-wrap; background:#0e1730; padding:12px; border-radius:8px; border:1px solid #2a3a60; }
+    small { color:#8fa3d8; }
+  </style>
+  <!-- Share this file directly with teammates. Update API URL if ngrok rotates. -->
+  <!-- API Base URL preset to current tunnel: https://b5e776df14c2.ngrok-free.app -->
+</head>
+<body>
+  <h1>MaxxEnergy API Connector</h1>
+  <div class="card">
+    <label>API Base URL</label>
+    <input id="baseUrl" value="https://b5e776df14c2.ngrok-free.app" />
+    <small>Update this if your ngrok URL changes.</small>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <div>
+        <h3>Health</h3>
+        <button onclick="health()">GET /health</button>
+      </div>
+      <div>
+        <h3>Token</h3>
+        <button class="secondary" onclick="copyToken()">Copy token</button>
+        <button class="secondary" onclick="clearToken()">Clear token</button>
+        <small id="tokenStatus"></small>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Register</h3>
+    <div class="row">
+      <div>
+        <label>Username</label><input id="reg_username" value="test3" />
+      </div>
+      <div>
+        <label>Email</label><input id="reg_email" value="test3@example.com" />
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label>Password</label><input id="reg_password" value="Passw0rd!" />
+      </div>
+      <div>
+        <label>Name</label><input id="reg_name" value="Test User" />
+      </div>
+    </div>
+    <div>
+      <label>Employee ID</label><input id="reg_employeeId" value="E125" />
+    </div>
+    <button onclick="registerUser()">POST /auth/register</button>
+  </div>
+
+  <div class="card">
+    <h3>Login → stores JWT</h3>
+    <div class="row">
+      <div>
+        <label>Username</label><input id="login_username" value="test3" />
+      </div>
+      <div>
+        <label>Password</label><input id="login_password" value="Passw0rd!" />
+      </div>
+    </div>
+    <button onclick="login()">POST /auth/login</button>
+  </div>
+
+  <div class="card">
+    <h3>Change Password (JWT)</h3>
+    <div class="row">
+      <div>
+        <label>Old Password</label><input id="cp_old" value="Passw0rd!" />
+      </div>
+      <div>
+        <label>New Password</label><input id="cp_new" value="NewPassw0rd!" />
+      </div>
+    </div>
+    <button onclick="changePassword()">POST /auth/change-password</button>
+  </div>
+
+  <div class="card">
+    <h3>Reset Password (public)</h3>
+    <div class="row">
+      <div>
+        <label>Email</label><input id="rp_email" value="test3@example.com" />
+      </div>
+      <div>
+        <label>New Password</label><input id="rp_new" value="ResetPassw0rd!" />
+      </div>
+    </div>
+    <button onclick="resetPassword()">POST /auth/reset-password</button>
+  </div>
+
+  <div class="card">
+    <h3>Result</h3>
+    <pre id="out">Ready.</pre>
+  </div>
+
+  <script>
+    const out = document.getElementById('out');
+    const tokenStatusEl = document.getElementById('tokenStatus');
+
+    function apiBase() { return document.getElementById('baseUrl').value.replace(/\/+$/, ''); }
+    function show(result) {
+      const text = typeof result === 'string' ? result : JSON.stringify(result, null, 2);
+      out.textContent = text;
+    }
+    function getToken() {
+      const t = localStorage.getItem('maxx_token') || '';
+      tokenStatusEl.textContent = t ? 'Token present' : 'No token';
+      return t;
+    }
+    function setToken(t) { localStorage.setItem('maxx_token', t || ''); tokenStatusEl.textContent = t ? 'Token present' : 'No token'; }
+    function copyToken() { const t = getToken(); if (!t) return alert('No token'); navigator.clipboard.writeText(t); alert('Token copied'); }
+    function clearToken() { setToken(''); show('Token cleared.'); }
+
+    async function http(method, path, body, auth=false) {
+      const headers = { 'Content-Type': 'application/json' };
+      if (auth) {
+        const t = getToken();
+        if (!t) throw new Error('Login first (missing token).');
+        headers['Authorization'] = `Bearer ${t}`;
+      }
+      const res = await fetch(`${apiBase()}${path}`, { method, headers, body: body ? JSON.stringify(body) : undefined });
+      const ct = res.headers.get('content-type') || '';
+      let data;
+      try { data = ct.includes('application/json') ? await res.json() : await res.text(); }
+      catch { data = await res.text(); }
+      show({ status: res.status, ok: res.ok, url: res.url, data });
+      return { res, data };
+    }
+
+    async function health() { await http('GET', '/health'); }
+    async function registerUser() {
+      await http('POST', '/auth/register', {
+        username: document.getElementById('reg_username').value,
+        email: document.getElementById('reg_email').value,
+        password: document.getElementById('reg_password').value,
+        name: document.getElementById('reg_name').value,
+        employeeId: document.getElementById('reg_employeeId').value,
+      });
+    }
+    async function login() {
+      const { data } = await http('POST', '/auth/login', {
+        username: document.getElementById('login_username').value,
+        password: document.getElementById('login_password').value,
+      });
+      const token = (data && data.token) || (typeof data === 'string' ? data : '');
+      if (token) setToken(token);
+    }
+    async function changePassword() {
+      await http('POST', '/auth/change-password', {
+        oldPassword: document.getElementById('cp_old').value,
+        newPassword: document.getElementById('cp_new').value,
+      }, true);
+    }
+    async function resetPassword() {
+      await http('POST', '/auth/reset-password', {
+        email: document.getElementById('rp_email').value,
+        newPassword: document.getElementById('rp_new').value,
+      });
+    }
+
+    getToken();
+  </script>
+</body>
+</html>
+
+
