@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>API Test</h1>
+    <button onclick="testRegister()">Test Register</button>
+    <button onclick="testLogin()">Test Login</button>
+    <div id="result"></div>
+
+    <script>
+        const API_URL = 'https://6b8717b54326.ngrok-free.app';
+        
+        async function testRegister() {
+            try {
+                const response = await fetch(`${API_URL}/auth/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'ngrok-skip-browser-warning': 'true'
+                    },
+                    body: JSON.stringify({
+                        username: 'testuser',
+                        email: 'test@example.com',
+                        password: 'password123'
+                    })
+                });
+                
+                const result = await response.text();
+                document.getElementById('result').innerHTML = `Register: ${response.status} - ${result}`;
+            } catch (error) {
+                document.getElementById('result').innerHTML = `Register Error: ${error.message}`;
+            }
+        }
+        
+        async function testLogin() {
+            try {
+                const response = await fetch(`${API_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'ngrok-skip-browser-warning': 'true'
+                    },
+                    body: JSON.stringify({
+                        email: 'test@example.com',
+                        password: 'password123'
+                    })
+                });
+                
+                const result = await response.text();
+                document.getElementById('result').innerHTML = `Login: ${response.status} - ${result}`;
+            } catch (error) {
+                document.getElementById('result').innerHTML = `Login Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

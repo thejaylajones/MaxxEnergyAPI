@@ -57,7 +57,14 @@ public class AuthService {
     // ================= LOGIN =================
     public String login(LoginRequest request) {
 
-        User user = userRepository.findByUsername(request.getUsername()).orElse(null);
+        User user = null;
+        
+        // Try to find user by email first, then by username
+        if (request.getEmail() != null && !request.getEmail().isEmpty()) {
+            user = userRepository.findByEmail(request.getEmail()).orElse(null);
+        } else if (request.getUsername() != null && !request.getUsername().isEmpty()) {
+            user = userRepository.findByUsername(request.getUsername()).orElse(null);
+        }
 
         if (user == null) {
             new ResourceNotFoundException("User not found");

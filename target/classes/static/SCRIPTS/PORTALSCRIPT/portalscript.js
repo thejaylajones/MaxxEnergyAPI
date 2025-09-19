@@ -46,12 +46,13 @@ buttons.forEach((btn, index) => {
 async function loginToBackend(username, password) {
   try {
     // Use the correct backend API endpoint with ngrok URL
-    const response = await fetch("https://b5e776df14c2.ngrok-free.app/auth/login", {
+    const response = await fetch("https://6b8717b54326.ngrok-free.app/auth/login", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": "true"
       },
-      body: JSON.stringify({ username, password })
+      body: JSON.stringify({ email: username, password })
     });
 
     if (!response.ok) {

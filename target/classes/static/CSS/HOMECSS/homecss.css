@@ -178,8 +178,8 @@ nav.navbar {
   height: auto;
   opacity: 0.8;
   animation: pulseGlow 3s infinite ease-in-out;
-  filter: drop-shadow(0 0 10px #ffe600) 
-          drop-shadow(0 0 20px #414eca) 
+  filter: drop-shadow(0 0 10px #ffe600)
+          drop-shadow(0 0 20px #414eca)
           drop-shadow(0 0 40px #414eca);
 }
 

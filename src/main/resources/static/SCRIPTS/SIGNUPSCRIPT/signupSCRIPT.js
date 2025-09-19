@@ -40,7 +40,7 @@ document.getElementById("signup-form").addEventListener("submit", function (e) {
   if (valid) {
     // === BACKEND CONNECTION ===
     // Use the correct backend signup endpoint with ngrok URL
-    const backendUrl = "https://b5e776df14c2.ngrok-free.app/auth/register";
+    const backendUrl = "https://6b8717b54326.ngrok-free.app/auth/register";
 
     // Prepare data to send
     const signupData = {
@@ -55,7 +55,8 @@ document.getElementById("signup-form").addEventListener("submit", function (e) {
     fetch(backendUrl, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": "true"
       },
       body: JSON.stringify(signupData)
     })

@@ -1,13 +1,15 @@
+
 // MaxxEnergy API Integration
 // This file connects the existing frontend to the backend API
 // DO NOT MODIFY - This preserves all existing styling and functionality
 
-const MAXX_API_BASE_URL = 'https://b5e776df14c2.ngrok-free.app';
+const MAXX_API_BASE_URL = 'https://6b8717b54326.ngrok-free.app';
 
 // API Helper Function
 async function maxxApiCall(method, endpoint, data = null, requireAuth = false) {
     const headers = {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': 'true'
     };
 
     // Get token from localStorage
